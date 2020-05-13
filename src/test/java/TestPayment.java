@@ -48,7 +48,6 @@ public class TestPayment {
         // action.perform();
         // action.moveTo();
        // action.doubleClick(button);
-       // action.perform();
     }
 
     @AfterEach
