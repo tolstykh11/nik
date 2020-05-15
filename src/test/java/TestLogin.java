@@ -47,6 +47,7 @@ public class TestLogin {
     @Test
     public void TestResetPassword() {
         AppiumDriver driver=TEST.getDriver();
+
         driver.findElementById("com.magora.abacuspay.dev:id/forgotPassword").click();
         driver.findElementById("com.magora.abacuspay.dev:id/emailField").sendKeys("tolstykh@magora-systems.com");
         driver.findElementById("com.magora.abacuspay.dev:id/nextBtn").click();
