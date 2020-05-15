@@ -15,6 +15,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TEST {
 
+
+
    private static AppiumDriver driver;
 
     public static void setDriver(AppiumDriver driver) {
@@ -25,37 +27,38 @@ public class TEST {
         return driver;
     }
 
-  /*  @BeforeAll
-    public  static void  SetUp () throws Exception {
-        System.out.println("Step 1. Create new driver");
-        driver = getAppiumDriver("Android", new URL("http://0.0.0.0:4723/wd/hub"));
+    /*
+        @BeforeAll
+        public  static void  SetUp () throws Exception {
+            System.out.println("Step 1. Create new driver");
+            driver = getAppiumDriver("Android", new URL("http://0.0.0.0:4723/wd/hub"));
 
-    }
+        }
 
-    @Test
-    public void test_1() throws Exception {
-        System.out.println("Step 2. First Test - Success login");
-        Thread.sleep(3000);
-       // WebElement ss= driver.findElementById("dsdsd");
-        driver.findElementById("com.magora.abacuspay.dev:id/emailField").sendKeys("tolstykh+999991@magora-systems.com");
-        driver.hideKeyboard();
-        driver.findElementById("com.magora.abacuspay.dev:id/passwordField").sendKeys("Qwerty123");
-        driver.hideKeyboard();
-        driver.findElementById("com.magora.abacuspay.dev:id/nextBtn").click();
-        Thread.sleep(2000);
-        assertTrue(driver.findElementById("com.magora.abacuspay.dev:id/payBtn").isDisplayed(),"LOX");
+            @Test
+            public void test_1() throws Exception {
+                System.out.println("Step 2. First Test - Success login");
+                Thread.sleep(3000);
+               // WebElement ss= driver.findElementById("dsdsd");
+                driver.findElementById("com.magora.abacuspay.dev:id/emailField").sendKeys("tolstykh+999991@magora-systems.com");
+                driver.hideKeyboard();
+                driver.findElementById("com.magora.abacuspay.dev:id/passwordField").sendKeys("Qwerty123");
+                driver.hideKeyboard();
+                driver.findElementById("com.magora.abacuspay.dev:id/nextBtn").click();
+                Thread.sleep(2000);
+                assertTrue(driver.findElementById("com.magora.abacuspay.dev:id/payBtn").isDisplayed(),"LOX");
 
 
-    }
+            }
 
-    @AfterAll
-    public static void tearDown() {
-        System.out.println("Close driver");
-        driver.quit();
-    }
+            @AfterAll
+            public static void tearDown() {
+                System.out.println("Close driver");
+                driver.quit();
+            }
 
-*/
-    public   static AppiumDriver getAppiumDriver(String platform, URL serverUrl) {
+        */
+    public static AppiumDriver getAppiumDriver(String platform, URL serverUrl) {
         return platform.equals("iOS") ? getIOSDriver(serverUrl) : getAndroidDriver(serverUrl);
     }
 

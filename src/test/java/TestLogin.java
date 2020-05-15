@@ -14,29 +14,28 @@ public class TestLogin {
     public  void  SetUp () throws Exception {
         System.out.println("Step 1. Create new driver");
         TEST.setDriver(TEST.getAppiumDriver("Android", new URL("http://0.0.0.0:4723/wd/hub")));
+        Thread.sleep(2000);
     }
 
     @Test
     public void TestInvalidLogin () throws InterruptedException {
         System.out.println("Step 2. First Test - Invalid login");
-        Thread.sleep(3000);
         AppiumDriver driver=TEST.getDriver();
-        driver.findElementById("com.magora.abacuspay.dev:id/emailField").sendKeys("tolstykh+999991@magora-systems.com");
+        driver.findElementById("com.magora.abacuspay.dev:id/emailField").sendKeys("tolstykh+test@magora-systems.com");
         driver.hideKeyboard();
         driver.findElementById("com.magora.abacuspay.dev:id/passwordField").sendKeys("Qwerty");
         driver.hideKeyboard();
         driver.findElementById("com.magora.abacuspay.dev:id/nextBtn").click();
         Thread.sleep(2000);
-        assertTrue(driver.findElementById("com.magora.abacuspay.dev:id/credentialsError").isDisplayed(),"LOX");
+        assertTrue(driver.findElementById("com.magora.abacuspay.dev:id/credentialsError").isDisplayed(),"element not found");
     }
 
     @Test
     public void TestSuccessLogin () throws InterruptedException {
         System.out.println("Step 2. First Test - Success login");
-        Thread.sleep(3000);
         // WebElement ss= driver.findElementById("dsdsd");
         AppiumDriver driver=TEST.getDriver();
-        driver.findElementById("com.magora.abacuspay.dev:id/emailField").sendKeys("tolstykh+999991@magora-systems.com");
+        driver.findElementById("com.magora.abacuspay.dev:id/emailField").sendKeys("tolstykh+test@magora-systems.com");
         driver.hideKeyboard();
         driver.findElementById("com.magora.abacuspay.dev:id/passwordField").sendKeys("Qwerty123");
         driver.hideKeyboard();
@@ -44,6 +43,16 @@ public class TestLogin {
         Thread.sleep(2000);
         assertTrue(driver.findElementById("com.magora.abacuspay.dev:id/payBtn").isDisplayed(),"LOX");
     }
+
+    @Test
+    public void TestResetPassword() {
+        AppiumDriver driver=TEST.getDriver();
+        driver.findElementById("com.magora.abacuspay.dev:id/forgotPassword").click();
+        driver.findElementById("com.magora.abacuspay.dev:id/emailField").sendKeys("tolstykh@magora-systems.com");
+        driver.findElementById("com.magora.abacuspay.dev:id/nextBtn").click();
+
+    }
+
 
     @AfterEach
     public  void tearDown() {

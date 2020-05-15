@@ -13,6 +13,7 @@ public class TestPayment {
     public  void  SetUp () throws Exception {
         System.out.println("Step 1. Create new driver");
         TEST.setDriver(TEST.getAppiumDriver("Android", new URL("http://0.0.0.0:4723/wd/hub")));
+        Thread.sleep(2000);
     }
 
     @Test
@@ -22,8 +23,6 @@ public class TestPayment {
         Actions action = new Actions(TEST.getDriver());
 
         System.out.println("Step 2. Success Card Payment");
-
-        Thread.sleep(3000);
         driver.findElementById("com.magora.abacuspay.dev:id/emailField").sendKeys("tolstykh+999991@magora-systems.com");
         driver.hideKeyboard();
         driver.findElementById("com.magora.abacuspay.dev:id/passwordField").sendKeys("Qwerty123");
